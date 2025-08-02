@@ -46,7 +46,7 @@ def create_discord_message(data):
     
     message = {
         "embeds": [{
-            "title": f"📅 오늘 날짜: {today.strftime('%Y-%m-%d')}",
+            "title": f"📅{today.strftime('%Y-%m-%d')} 모집 일정",
             "color": 0x00ff00,
             "fields": []
         }]
@@ -55,8 +55,8 @@ def create_discord_message(data):
     # ToDo 리스트
     todo_tasks = filter_tasks(data, ["To Do"])
     message["embeds"][0]["fields"].append({
-        "name": "📌 To Do",
-        "value": f"{todo_tasks if todo_tasks else '할 일이 없습니다.'}",  # 줄바꿈 추가
+        "name": "📌 모집 진행 중",
+        "value": f"{todo_tasks if todo_tasks else '진행중인 모집 일정이 없습니다.'}",  # 줄바꿈 추가
         "inline": False
     })
     
