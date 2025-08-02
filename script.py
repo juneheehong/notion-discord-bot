@@ -60,32 +60,32 @@ def create_discord_message(data):
         "inline": False
     })
     
-    # Daily 체크리스트
-    daily_tasks = filter_tasks(data, ["Daily"])
-    message["embeds"][0]["fields"].append({
-        "name": "📋 Daily CheckList",
-        "value": f"{daily_tasks if daily_tasks else '오늘 할 일이 없습니다.'}\n\u200B",  # 줄바꿈 추가
-        "inline": False
-    })
+    # # Daily 체크리스트
+    # daily_tasks = filter_tasks(data, ["Daily"])
+    # message["embeds"][0]["fields"].append({
+    #     "name": "📋 Daily CheckList",
+    #     "value": f"{daily_tasks if daily_tasks else '오늘 할 일이 없습니다.'}\n\u200B",  # 줄바꿈 추가
+    #     "inline": False
+    # })
     
-    # Weekly 체크 (토요일)
-    if today.weekday() == 5:
-        weekly_tasks = filter_tasks(data, ["Weekly"])
-        message["embeds"][0]["fields"].append({
-            "name": "📅 Weekly CheckList",
-            "value": f"{weekly_tasks if weekly_tasks else '이번 주 할 일이 없습니다.'}\n\u200B",  # 줄바꿈 추가
-            "inline": False
-        })
+    # # Weekly 체크 (토요일)
+    # if today.weekday() == 5:
+    #     weekly_tasks = filter_tasks(data, ["Weekly"])
+    #     message["embeds"][0]["fields"].append({
+    #         "name": "📅 Weekly CheckList",
+    #         "value": f"{weekly_tasks if weekly_tasks else '이번 주 할 일이 없습니다.'}\n\u200B",  # 줄바꿈 추가
+    #         "inline": False
+    #     })
     
-    # Monthly 체크 (마지막 주 토요일)
-    next_week = today + timedelta(days=7)
-    if today.weekday() == 5 and next_week.month != today.month:
-        monthly_tasks = filter_tasks(data, ["Monthly"])
-        message["embeds"][0]["fields"].append({
-            "name": "📊 Monthly CheckList",
-            "value": monthly_tasks if monthly_tasks else "이번 달 할 일이 없습니다.",  # 마지막 필드는 줄바꿈 불필요
-            "inline": False
-        })
+    # # Monthly 체크 (마지막 주 토요일)
+    # next_week = today + timedelta(days=7)
+    # if today.weekday() == 5 and next_week.month != today.month:
+    #     monthly_tasks = filter_tasks(data, ["Monthly"])
+    #     message["embeds"][0]["fields"].append({
+    #         "name": "📊 Monthly CheckList",
+    #         "value": monthly_tasks if monthly_tasks else "이번 달 할 일이 없습니다.",  # 마지막 필드는 줄바꿈 불필요
+    #         "inline": False
+    #     })
     
     return message
 
