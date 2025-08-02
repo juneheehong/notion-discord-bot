@@ -56,7 +56,7 @@ def create_discord_message(data):
     todo_tasks = filter_tasks(data, ["To Do"])
     message["embeds"][0]["fields"].append({
         "name": "📌 To Do",
-        "value": f"{todo_tasks if todo_tasks else '할 일이 없습니다.'}\n\u200B",  # 줄바꿈 추가
+        "value": f"{todo_tasks if todo_tasks else '할 일이 없습니다.'}",  # 줄바꿈 추가
         "inline": False
     })
     
