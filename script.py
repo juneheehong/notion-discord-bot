@@ -2,10 +2,10 @@ import os
 import requests
 from datetime import datetime, timezone, timedelta
 # 로컬에서 실행시 dotenv import
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 
 # 로컬에서 실행시 .env 파일 로드
-load_dotenv()
+#load_dotenv()
 
 test = os.getenv('DISCORD_WEBHOOK_URL')
 print(test)
