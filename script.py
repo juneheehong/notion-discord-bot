@@ -37,7 +37,7 @@ def filter_tasks(data, task_types, status="진행 중"):
             tasks.append(f"• *{title}*")  # 제목을 굵게 표시
     
     # 각 항목을 두 줄 바꿈으로 구분
-    return "\n".join(tasks) if tasks else "할 일이 없습니다."
+    return "\n".join(tasks) if tasks else "일정이 없습니다."
 
 def create_discord_message(data):
     # 한국 시간대 설정 (UTC+9)
@@ -63,8 +63,8 @@ def create_discord_message(data):
     # process 리스트
     todo_tasks = filter_tasks(data, ["process"])
     message["embeds"][0]["fields"].append({
-        "name": "📌 신청 완료 / 결과 대기 중",
-        "value": f"{todo_tasks if todo_tasks else '진행중인 모집 일정이 없습니다.'}",
+        "name": "📌 신청 완료 / 대기 중",
+        "value": f"{todo_tasks if todo_tasks else '대기중인 컨텐츠가 없습니다.'}\n\u200B",
         "inline": False
     })
     
