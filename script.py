@@ -56,7 +56,15 @@ def create_discord_message(data):
     todo_tasks = filter_tasks(data, ["To Do"])
     message["embeds"][0]["fields"].append({
         "name": "📌 모집 진행 중",
-        "value": f"{todo_tasks if todo_tasks else '진행중인 모집 일정이 없습니다.'}",  # 줄바꿈 추가
+        "value": f"{todo_tasks if todo_tasks else '진행중인 모집 일정이 없습니다.'}\n\u200B",  # 줄바꿈 추가
+        "inline": False
+    })
+
+    # process 리스트
+    todo_tasks = filter_tasks(data, ["process"])
+    message["embeds"][0]["fields"].append({
+        "name": "📌 신청 완료 / 결과 대기 중",
+        "value": f"{todo_tasks if todo_tasks else '진행중인 모집 일정이 없습니다.'}",
         "inline": False
     })
     
@@ -86,6 +94,12 @@ def create_discord_message(data):
     #         "value": monthly_tasks if monthly_tasks else "이번 달 할 일이 없습니다.",  # 마지막 필드는 줄바꿈 불필요
     #         "inline": False
     #     })
+
+    message["embeds"][0]["fields"].append({
+        "name": "📌 노션 주소",
+        "value": f"https://buly.kr/74X1krn",
+        "inline": False
+    })
     
     return message
 
